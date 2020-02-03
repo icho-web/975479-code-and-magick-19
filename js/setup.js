@@ -21,22 +21,18 @@ userDialog.classList.remove('hidden');
 var generateCharacter = function (count) {
   var arr = [];
   for (var i = 0; i < count; i++) {
-    console.log (arr);
-    debugger;
     arr.push({
       name: NAME[getRandomValue(0, NAME.length - 1)] + ' ' + SURNAME[getRandomValue(0, SURNAME.length - 1)],
       coatColor: COAT_COLOR[getRandomValue(0, COAT_COLOR.length - 1)],
       eyesColor: EYES_COLOR[getRandomValue(0, EYES_COLOR.length - 1)]
     });
   }
-  console.log (arr);
-  debugger;
   return arr;
 };
 var arrLength = generateCharacter(ARR_LENGTH);
 
 var renderWizard = function (wizards) {
-  for (var i = 0; i <= wizards.length; i++) {
+  for (var i = 0; i < wizards.length; i++) {
     var wizardElement = similarWizardTemplate.cloneNode(true);
     var fragment = document.createDocumentFragment();
     fragment.appendChild(wizardElement);
