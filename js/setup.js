@@ -10,26 +10,30 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template')
   .content
   .querySelector('.setup-similar-item');
 var userDialog = document.querySelector('.setup');
-var getRandomArr = function (name) {
-  return Math.floor(Math.random() * name.length);
+var getRandomValue = function (min, max) {
+  return Math.round(Math.random() * (max - min) + min);
 };
 var setupSimilar = document.querySelector('.setup-similar');
 
 setupSimilar.classList.remove('hidden');
 userDialog.classList.remove('hidden');
 
-var getGenerateCharacter = function (count) {
+var generateCharacter = function (count) {
   var arr = [];
-  for (var i = 0; i <= count - 2; i++) {
+  for (var i = 0; i < count; i++) {
+    console.log (arr);
+    debugger;
     arr.push({
-      name: NAME[getRandomArr(NAME)] + ' ' + SURNAME[getRandomArr(SURNAME)],
-      coatColor: COAT_COLOR[getRandomArr(COAT_COLOR)],
-      eyesColor: EYES_COLOR[getRandomArr(EYES_COLOR)]
+      name: NAME[getRandomValue(0, NAME.length - 1)] + ' ' + SURNAME[getRandomValue(0, SURNAME.length - 1)],
+      coatColor: COAT_COLOR[getRandomValue(0, COAT_COLOR.length - 1)],
+      eyesColor: EYES_COLOR[getRandomValue(0, EYES_COLOR.length - 1)]
     });
   }
+  console.log (arr);
+  debugger;
   return arr;
 };
-var arrLength = getGenerateCharacter(ARR_LENGTH);
+var arrLength = generateCharacter(ARR_LENGTH);
 
 var renderWizard = function (wizards) {
   for (var i = 0; i <= wizards.length; i++) {
