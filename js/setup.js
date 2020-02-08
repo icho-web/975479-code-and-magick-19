@@ -94,32 +94,23 @@ document.addEventListener('keydown', function (evt) {
   }
 });
 
-var currentNumber = 0;
-var changeColor = function (colorNumber, arr, wizardItem, inputColor) {
-  wizardItem.addEventListener('click', function () {
-    if (colorNumber < arr.length - 1) {
-      colorNumber++;
-    } else {
-      colorNumber = 0;
-    }
-    wizardItem.style.fill = arr[colorNumber];
-    inputColor.value = arr[colorNumber];
-  });
+var changeBackgroundColor = function (element, arr, input) {
+  var randomValue = parseInt(getRandomValue(0, arr.length), 10);
+  element.style.background = arr[randomValue];
+  element.style.fill = arr[randomValue];
+  input.value = arr[randomValue];
 };
 
-var changeBackground = function (colorNumber, arr, wizardItem, inputBackground) {
-  wizardItem.addEventListener('click', function () {
-    if (colorNumber < arr.length - 1) {
-      colorNumber++;
-    } else {
-      colorNumber = 0;
-    }
-    wizardItem.style.background = arr[colorNumber];
-    inputBackground.value = arr[colorNumber];
-  });
-};
+wizardFireball.addEventListener('click', function () {
+  changeBackgroundColor(wizardFireball, FIREBALLS_COLOR, fireballColor);
+});
 
-changeColor(currentNumber, COAT_COLOR, wizardCoat, coatColor);
-changeColor(currentNumber, EYES_COLOR, wizardEyes, eyesColor);
-changeBackground(currentNumber, FIREBALLS_COLOR, wizardFireball, fireballColor);
+wizardCoat.addEventListener('click', function () {
+  changeBackgroundColor(wizardCoat, COAT_COLOR, coatColor);
+});
+
+wizardEyes.addEventListener('click', function () {
+  changeBackgroundColor(wizardEyes, EYES_COLOR, eyesColor);
+});
+
 renderWizard(arrLength);
