@@ -20,10 +20,13 @@
   });
 
   wizardCoat.addEventListener('click', function () {
+    window.debounce();
     changeBackgroundColor(wizardCoat, window.utils.COAT_COLOR, coatColor);
+
   });
 
   wizardEyes.addEventListener('click', function () {
     changeBackgroundColor(wizardEyes, window.utils.EYES_COLOR, eyesColor);
+    window.debounce();
   });
 })();
