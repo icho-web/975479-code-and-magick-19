@@ -2,6 +2,7 @@
 
 (function () {
 
+  var MAX_WIZARDS = 4;
   var form = document.querySelector('.setup-wizard-form');
   var similarListElement = document.querySelector('.setup-similar-list');
 
@@ -11,7 +12,7 @@
 
   var renderWizard = function (wizards) {
     similarListElement.innerHTML = '';
-    var takeNumber = wizards.length > 4 ? 4 : wizards.length;
+    var takeNumber = wizards.length > MAX_WIZARDS ? MAX_WIZARDS : wizards.length;
     for (var i = 0; i < takeNumber; i++) {
       var wizardElement = similarWizardTemplate.cloneNode(true);
       var fragment = document.createDocumentFragment();
