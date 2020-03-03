@@ -12,8 +12,8 @@
 
   var renderWizard = function (wizards) {
     similarListElement.innerHTML = '';
-    var takeNumber = wizards.length > MAX_WIZARDS ? MAX_WIZARDS : wizards.length;
-    for (var i = 0; i < takeNumber; i++) {
+    var wizardsCount = wizards.length > MAX_WIZARDS ? MAX_WIZARDS : wizards.length;
+    for (var i = 0; i < wizardsCount; i++) {
       var wizardElement = similarWizardTemplate.cloneNode(true);
       var fragment = document.createDocumentFragment();
       fragment.appendChild(wizardElement);
